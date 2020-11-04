@@ -408,7 +408,43 @@ const users = [
 // const third = arr.concat();
 // Используй деструктурирующее присваивание для параметра функции ({name})` без пробелов и переносов на новую строку
 
-const getNamesSortedByFriendsCount = (array) => [...array].sort() => friends;
+//const getNamesSortedByFriendsCount = (array) => [...array].sort( (a, b) => a.friends.length - b.friends.length).map(({name}) => name);
 
- console.log(getNamesSortedByFriendsCount(users));
+ //console.log(getNamesSortedByFriendsCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
+
+
+
+
+//task10
+
+// reduce, filter, sort
+// Получи массив всех умений всех пользователей(поле skills), при этом не должно быть повторяющихся
+// умений и они должны быть отсортированы в алфавитном порядке.
+
+// Слияние массивов:
+
+// const odd = [1, 3, 5];
+// const even = [2, 4, 6];
+
+// 1
+//[...odd, ...even];
+//  [1, 3, 5, 2, 4, 6]
+
+// 2
+//odd.concat(even)
+//  [1, 3, 5, 2, 4, 6]
+
+//const getSortedUniqueSkills = (array) => array.reduce((acc, {skills}) => acc.concat(skills), []).filter(value => value !== array.reduce.skills ? value : null);
+const getSortedUniqueSkills = (array) => array.reduce((acc, { skills }) => acc.concat(skills), []).filter((value, index, array) => array.indexOf(value) === index).sort();
+console.log(getSortedUniqueSkills(users));
+/* [ 'adipisicing', 'amet',
+ 'anim', 'commodo',
+ 'culpa', 'elit',
+ 'ex', 'ipsum',
+ 'irure', 'laborum',
+ 'lorem', 'mollit',
+ 'non', 'nostrud',
+ 'nulla', 'proident',
+ 'tempor', 'velit',
+ 'veniam' ]; */
